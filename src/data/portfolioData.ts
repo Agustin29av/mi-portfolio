@@ -12,7 +12,7 @@ export const portfolioData: PortfolioData = {
     // TODO: completar URL de LinkedIn
     linkedin: 'https://linkedin.com/in/agustin-avilés-a1b05b188',
     // TODO: completar URL de GitHub
-    github: 'https://github.com/Agustin29av',
+    github: 'https://github.com/tu-usuario',
     cvUrl: '/001-AgustinAvilesCv.pdf',
     location: 'Entre Ríos, Argentina',
   },

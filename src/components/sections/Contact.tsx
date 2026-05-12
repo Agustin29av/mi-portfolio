@@ -1,51 +1,28 @@
 // src/components/sections/Contact.tsx
-import { useState, type FormEvent } from 'react';
+import type { FormEvent } from 'react';
 import { portfolioData } from '../../data/portfolioData';
+import { useContactForm } from '../../hooks/useContactForm';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { Button } from '../ui/Button';
 import { SectionTitle } from '../ui/SectionTitle';
 import { CheckIcon, GitHubIcon, LinkedInIcon, MailIcon } from '../ui/Icons';
 
-type Status = 'idle' | 'sending' | 'success' | 'error';
-
-interface FormState {
-  name: string;
-  email: string;
-  message: string;
-}
-
-const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 export function Contact() {
   const { personal } = portfolioData;
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
-
-  const [form, setForm] = useState<FormState>({ name: '', email: '', message: '' });
-  const [errors, setErrors] = useState<Partial<FormState>>({});
-  const [status, setStatus] = useState<Status>('idle');
-
-  const validate = (): boolean => {
-    const next: Partial<FormState> = {};
-    if (!form.name.trim()) next.name = 'Tu nombre es requerido';
-    if (!form.email.trim()) next.email = 'Tu email es requerido';
-    else if (!emailRe.test(form.email)) next.email = 'Email inválido';
-    if (!form.message.trim()) next.message = 'Escribí un mensaje';
-    else if (form.message.trim().length < 10)
-      next.message = 'Contame un poco más (mín. 10 caracteres)';
-    setErrors(next);
-    return Object.keys(next).length === 0;
-  };
+  const {
+    form,
+    errors,
+    status,
+    botcheck,
+    setBotcheck,
+    updateField,
+    submit,
+  } = useContactForm();
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!validate()) return;
-    setStatus('sending');
-    // Submit simulado: en producción reemplazar por fetch a tu endpoint o servicio (Formspree, EmailJS, etc.)
-    window.setTimeout(() => {
-      setStatus('success');
-      setForm({ name: '', email: '', message: '' });
-      window.setTimeout(() => setStatus('idle'), 4000);
-    }, 1200);
+    void submit();
   };
 
   const inputCls =
@@ -128,6 +105,17 @@ export function Contact() {
             noValidate
             className="lg:col-span-3 p-6 sm:p-8 rounded-2xl border border-border-light dark:border-border-dark bg-white dark:bg-surface-card-dark"
           >
+            {/* Honeypot: invisible para humanos, los bots lo rellenan y Web3Forms descarta */}
+            <input
+              type="checkbox"
+              name="botcheck"
+              tabIndex={-1}
+              autoComplete="off"
+              checked={!!botcheck}
+              onChange={(e) => setBotcheck(e.target.checked ? 'true' : '')}
+              style={{ display: 'none' }}
+              aria-hidden="true"
+            />
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-1.5">
@@ -137,7 +125,7 @@ export function Contact() {
                   id="name"
                   type="text"
                   value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  onChange={(e) => updateField('name', e.target.value)}
                   className={inputCls}
                   placeholder="Tu nombre"
                   aria-invalid={!!errors.name}
@@ -154,7 +142,7 @@ export function Contact() {
                   id="email"
                   type="email"
                   value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  onChange={(e) => updateField('email', e.target.value)}
                   className={inputCls}
                   placeholder="tu@email.com"
                   aria-invalid={!!errors.email}
@@ -173,7 +161,7 @@ export function Contact() {
                 id="message"
                 rows={5}
                 value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                onChange={(e) => updateField('message', e.target.value)}
                 className={`${inputCls} resize-none`}
                 placeholder="Contame en qué estás pensando..."
                 aria-invalid={!!errors.message}
