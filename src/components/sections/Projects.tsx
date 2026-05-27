@@ -1,4 +1,5 @@
 // src/components/sections/Projects.tsx
+import { useState } from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { Badge } from '../ui/Badge';
@@ -19,6 +20,24 @@ function ProjectPlaceholder({ title }: { title: string }) {
 
 function ProjectShowcase({ project, index }: { project: Project; index: number }) {
   const isEven = index % 2 === 0;
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const hasImages = project.images && project.images.length > 0;
+  const images = hasImages ? project.images! : [];
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (images.length > 0) {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (images.length > 0) {
+      setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+    }
+  };
 
   return (
     <div className="group relative">
@@ -35,20 +54,96 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
               }}
             />
 
-            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 dark:from-white/[0.03] dark:to-white/[0.06] p-4 sm:p-6 lg:p-8">
-              {project.imageUrl ? (
-                <img
-                  src={project.imageUrl}
-                  alt={project.title}
-                  loading="lazy"
-                  className="w-full h-auto object-contain drop-shadow-lg transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                />
-              ) : (
-                <div className="aspect-16/10">
+            {/* Mockup browser window wrapper */}
+            <div className="relative rounded-2xl overflow-hidden border border-border-light dark:border-border-dark bg-slate-50 dark:bg-surface-card-dark shadow-2xl flex flex-col transition-all duration-500">
+              
+              {/* Browser top navigation bar */}
+              <div className="h-8 bg-slate-100 dark:bg-surface-card-dark shrink-0 flex items-center px-4 gap-1.5 border-b border-border-light dark:border-border-dark justify-between select-none">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-400/80" />
+                </div>
+                <div className="text-[10px] text-ink-light-muted/60 dark:text-ink-dark-muted/60 font-mono hidden sm:block truncate max-w-[200px]">
+                  {project.liveUrl ? project.liveUrl.replace('https://', '') : 'localhost:3000'}
+                </div>
+                <div className="w-[36px]" />
+              </div>
+
+              {/* Aspect Ratio Controlled viewport */}
+              <div className="relative overflow-hidden group/slider aspect-16/10 bg-slate-100 dark:bg-surface-card-dark flex items-center justify-center p-2 sm:p-4">
+                {hasImages ? (
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <img
+                      src={images[currentImageIndex].url}
+                      alt={`${project.title} - ${images[currentImageIndex].caption}`}
+                      loading="lazy"
+                      className="w-full h-full object-contain rounded-lg drop-shadow-md select-none transition-all duration-500 ease-in-out"
+                    />
+
+                    {/* Navigation Arrow buttons */}
+                    {images.length > 1 && (
+                      <>
+                        <button
+                          onClick={handlePrev}
+                          className="absolute left-3 p-2 rounded-full bg-white/90 dark:bg-surface-card-dark/95 hover:bg-white dark:hover:bg-surface-dark text-ink-light dark:text-ink-dark shadow-md hover:scale-105 transition-all opacity-0 group-hover/slider:opacity-100 duration-300 focus:outline-none"
+                          aria-label="Previous image"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                          </svg>
+                        </button>
+                        <button
+                          onClick={handleNext}
+                          className="absolute right-3 p-2 rounded-full bg-white/90 dark:bg-surface-card-dark/95 hover:bg-white dark:hover:bg-surface-dark text-ink-light dark:text-ink-dark shadow-md hover:scale-105 transition-all opacity-0 group-hover/slider:opacity-100 duration-300 focus:outline-none"
+                          aria-label="Next image"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                          </svg>
+                        </button>
+                      </>
+                    )}
+                  </div>
+                ) : project.imageUrl ? (
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    loading="lazy"
+                    className="w-full h-full object-contain rounded-lg drop-shadow-md select-none"
+                  />
+                ) : (
                   <ProjectPlaceholder title={project.title} />
+                )}
+              </div>
+
+              {/* Slider index indicators (dots) */}
+              {hasImages && images.length > 1 && (
+                <div className="flex justify-center gap-1.5 py-2 bg-slate-100/50 dark:bg-surface-card-dark/40 border-t border-border-light/40 dark:border-border-dark/40 select-none">
+                  {images.map((_, imgIndex) => (
+                    <button
+                      key={imgIndex}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setCurrentImageIndex(imgIndex);
+                      }}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        imgIndex === currentImageIndex
+                          ? 'w-6 bg-accent-500 dark:bg-accent-400'
+                          : 'w-1.5 bg-slate-300 dark:bg-zinc-700 hover:bg-slate-400 dark:hover:bg-zinc-600'
+                      }`}
+                      aria-label={`Go to slide ${imgIndex + 1}`}
+                    />
+                  ))}
                 </div>
               )}
             </div>
+             {/* Slider Caption Text */}
+            {hasImages && images[currentImageIndex].caption && (
+              <p className="mt-3 text-xs sm:text-sm text-center italic text-ink-light-muted dark:text-ink-dark-muted font-medium bg-white/20 dark:bg-white/[0.01] py-2.5 px-4 rounded-xl border border-border-light/30 dark:border-border-dark/30 shadow-sm transition-all duration-300">
+                🔍 {images[currentImageIndex].caption}
+              </p>
+            )}
           </div>
 
           {/* Content Section */}

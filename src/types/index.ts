@@ -9,6 +9,11 @@ export interface Skill {
   category: SkillCategory;
 }
 
+export interface ProjectImage {
+  url: string;
+  caption: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -17,6 +22,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   imageUrl?: string;
+  images?: ProjectImage[];
   featured: boolean;
 }
 
