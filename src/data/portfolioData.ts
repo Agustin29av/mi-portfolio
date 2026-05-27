@@ -1,60 +1,79 @@
 // src/data/portfolioData.ts
-import type { NavLink, PortfolioData } from '../types';
+import type { NavLink, PortfolioData } from "../types";
 
 export const portfolioData: PortfolioData = {
   personal: {
     // TODO: completar apellido
-    name: 'Agustín Avilés',
-    role: 'Frontend Developer',
-    bio: 'Desarrollador frontend apasionado por construir interfaces modernas y experiencias de usuario fluidas. Me especializo en el ecosistema React con TypeScript.',
+    name: "Agustín Avilés",
+    role: "Frontend Developer",
+    bio: "Desarrollador frontend apasionado por construir interfaces modernas y experiencias de usuario fluidas. Me especializo en el ecosistema React con TypeScript.",
     // TODO: completar email
-    email: 'agusaviles26@gmail.com',
+    email: "agusaviles26@gmail.com",
     // TODO: completar URL de LinkedIn
-    linkedin: 'https://linkedin.com/in/agustin-avilés-a1b05b188',
+    linkedin: "https://linkedin.com/in/agustin-avilés-a1b05b188",
     // TODO: completar URL de GitHub
-    github: 'https://github.com/tu-usuario',
-    cvUrl: '/001-AgustinAvilesCv.pdf',
-    location: 'Entre Ríos, Argentina',
+    github: "https://github.com/tu-usuario",
+    cvUrl: "/001-AgustinAvilesCv.pdf",
+    location: "Entre Ríos, Argentina",
   },
-  roles: ['Frontend Developer'],
+  roles: ["Frontend Developer"],
   stats: [
-    { label: 'Años de experiencia', value: '1+' },
-    { label: 'Proyectos', value: '10+' },
-    { label: 'Tecnologías', value: '15+' },
-    { label: 'Mates por día', value: '∞' },
+    { label: "Años de experiencia", value: "1+" },
+    { label: "Proyectos", value: "10+" },
+    { label: "Tecnologías", value: "15+" },
+    { label: "Mates por día", value: "∞" },
   ],
   skills: [
-    { name: 'React', icon: '⚛️', level: 5, category: 'Frontend' },
-    { name: 'TypeScript', icon: '🔷', level: 5, category: 'Frontend' },
-    { name: 'JavaScript', icon: '🟨', level: 5, category: 'Frontend' },
-    { name: 'HTML5', icon: '🧱', level: 5, category: 'Frontend' },
-    { name: 'CSS3', icon: '🎨', level: 5, category: 'Frontend' },
-    { name: 'Tailwind CSS', icon: '💨', level: 5, category: 'Frontend' },
-    { name: 'Zustand', icon: '🐻', level: 4, category: 'Frontend' },
-    { name: 'Redux', icon: '🔁', level: 4, category: 'Frontend' },
-    { name: 'Next.js', icon: '▲', level: 4, category: 'Frontend' },
-    { name: 'Vite', icon: '⚡', level: 5, category: 'Tools' },
-    { name: 'Git', icon: '🌿', level: 5, category: 'Tools' },
-    { name: 'GitHub', icon: '🐙', level: 5, category: 'Tools' },
-    { name: 'VS Code', icon: '🧠', level: 5, category: 'Tools' },
-    { name: 'Figma', icon: '🎯', level: 4, category: 'Tools' },
-    { name: 'Node.js', icon: '🟢', level: 3, category: 'Otros' },
-    { name: 'REST APIs', icon: '🔌', level: 4, category: 'Otros' },
-    { name: 'Accesibilidad', icon: '♿', level: 4, category: 'Otros' },
-    { name: 'Inglés A1', icon: '🌎', level: 4, category: 'Otros' },
+    { name: "React", icon: "⚛️", level: 5, category: "Frontend" },
+    { name: "TypeScript", icon: "🔷", level: 5, category: "Frontend" },
+    { name: "JavaScript", icon: "🟨", level: 5, category: "Frontend" },
+    { name: "HTML5", icon: "🧱", level: 5, category: "Frontend" },
+    { name: "CSS3", icon: "🎨", level: 5, category: "Frontend" },
+    { name: "Tailwind CSS", icon: "💨", level: 5, category: "Frontend" },
+    { name: "Zustand", icon: "🐻", level: 4, category: "Frontend" },
+    { name: "Redux", icon: "🔁", level: 4, category: "Frontend" },
+    { name: "Next.js", icon: "▲", level: 4, category: "Frontend" },
+    { name: "Vite", icon: "⚡", level: 5, category: "Tools" },
+    { name: "Git", icon: "🌿", level: 5, category: "Tools" },
+    { name: "GitHub", icon: "🐙", level: 5, category: "Tools" },
+    { name: "VS Code", icon: "🧠", level: 5, category: "Tools" },
+    { name: "Figma", icon: "🎯", level: 4, category: "Tools" },
+    { name: "Node.js", icon: "🟢", level: 3, category: "Otros" },
+    { name: "REST APIs", icon: "🔌", level: 4, category: "Otros" },
+    { name: "Accesibilidad", icon: "♿", level: 4, category: "Otros" },
+    { name: "Inglés A1", icon: "🌎", level: 4, category: "Otros" },
   ],
-  projects: [],
+  projects: [
+    {
+      id: "concesionario-app",
+      title: "Plataforma de Concesionaria Automotriz",
+      description:
+        "Aplicación fullstack para la gestión y exhibición de vehículos. Incluye un catálogo interactivo para los clientes y un panel de administración integral para gestionar el inventario, registro de ventas, control de finanzas (pagos y cuotas) y administración de leads.",
+      tags: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Node.js",
+        "Express",
+        "Prisma",
+      ],
+      githubUrl: "https://github.com/Agustin29av/concesionario-app",
+      liveUrl: "https://concesionario-app.vercel.app/", // TODO: Reemplazar con el link real de Vercel
+      imageUrl: "/projects/concesionario.png",
+      featured: true,
+    },
+  ],
   experiences: [
     {
-      id: 'my-intelli',
-      company: 'My Intelli',
-      role: 'Frontend Developer',
-      startDate: '2025',
-      endDate: '2026',
+      id: "my-intelli",
+      company: "My Intelli",
+      role: "Frontend Developer",
+      startDate: "2025",
+      endDate: "2026",
       bullets: [
-        'Desarrollé interfaces responsivas con React y TypeScript siguiendo buenas prácticas de accesibilidad y performance.',
-        'Implementé componentes reutilizables y un sistema de diseño consistente para acelerar nuevas features.',
-        'Colaboré con el equipo de producto y backend para entregar funcionalidades end-to-end.',
+        "Desarrollé interfaces responsivas con React y TypeScript siguiendo buenas prácticas de accesibilidad y performance.",
+        "Implementé componentes reutilizables y un sistema de diseño consistente para acelerar nuevas features.",
+        "Colaboré con el equipo de producto y backend para entregar funcionalidades end-to-end.",
         // TODO: agregar más logros específicos
       ],
     },
@@ -62,10 +81,10 @@ export const portfolioData: PortfolioData = {
 };
 
 export const navLinks: NavLink[] = [
-  { id: 'hero', label: 'Inicio' },
-  { id: 'about', label: 'Sobre mí' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Proyectos' },
-  { id: 'experience', label: 'Experiencia' },
-  { id: 'contact', label: 'Contacto' },
+  { id: "hero", label: "Inicio" },
+  { id: "about", label: "Sobre mí" },
+  { id: "skills", label: "Skills" },
+  { id: "projects", label: "Proyectos" },
+  { id: "experience", label: "Experiencia" },
+  { id: "contact", label: "Contacto" },
 ];
