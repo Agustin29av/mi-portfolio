@@ -86,7 +86,7 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
                       <>
                         <button
                           onClick={handlePrev}
-                          className="absolute left-3 p-2 rounded-full bg-white/90 dark:bg-surface-card-dark/95 hover:bg-white dark:hover:bg-surface-dark text-ink-light dark:text-ink-dark shadow-md hover:scale-105 transition-all opacity-0 group-hover/slider:opacity-100 duration-300 focus:outline-none"
+                          className="absolute left-3 p-2 rounded-full bg-white dark:bg-surface-card-dark/95 hover:bg-slate-50 dark:hover:bg-surface-dark text-slate-800 dark:text-slate-100 border border-slate-200/80 dark:border-border-dark shadow-md hover:scale-105 transition-all opacity-0 group-hover/slider:opacity-100 duration-300 focus:outline-none"
                           aria-label="Previous image"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
@@ -95,7 +95,7 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
                         </button>
                         <button
                           onClick={handleNext}
-                          className="absolute right-3 p-2 rounded-full bg-white/90 dark:bg-surface-card-dark/95 hover:bg-white dark:hover:bg-surface-dark text-ink-light dark:text-ink-dark shadow-md hover:scale-105 transition-all opacity-0 group-hover/slider:opacity-100 duration-300 focus:outline-none"
+                          className="absolute right-3 p-2 rounded-full bg-white dark:bg-surface-card-dark/95 hover:bg-slate-50 dark:hover:bg-surface-dark text-slate-800 dark:text-slate-100 border border-slate-200/80 dark:border-border-dark shadow-md hover:scale-105 transition-all opacity-0 group-hover/slider:opacity-100 duration-300 focus:outline-none"
                           aria-label="Next image"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
