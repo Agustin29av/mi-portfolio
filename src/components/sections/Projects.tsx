@@ -55,7 +55,7 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
             />
 
             {/* Mockup browser window wrapper */}
-            <div className="relative rounded-2xl overflow-hidden border border-border-light dark:border-border-dark bg-slate-50 dark:bg-surface-card-dark shadow-2xl flex flex-col transition-all duration-500">
+            <div className="relative rounded-2xl overflow-hidden border border-border-light dark:border-border-dark bg-slate-50 dark:bg-surface-card-dark shadow-2xl dark:shadow-[0_20px_50px_rgba(99,102,241,0.12)] group-hover:dark:shadow-[0_20px_50px_rgba(99,102,241,0.22)] flex flex-col transition-all duration-500">
               
               {/* Browser top navigation bar */}
               <div className="h-8 bg-slate-100 dark:bg-surface-card-dark shrink-0 flex items-center px-4 gap-1.5 border-b border-border-light dark:border-border-dark justify-between select-none">
