@@ -1,13 +1,15 @@
 // src/components/sections/About.tsx
 import { portfolioData } from '../../data/portfolioData';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { usePortfolioStore } from '../../store/usePortfolioStore';
 import { Button } from '../ui/Button';
 import { SectionTitle } from '../ui/SectionTitle';
-import { ArrowDownIcon } from '../ui/Icons';
+import { EyeIcon } from '../ui/Icons';
 
 export function About() {
   const { personal, stats } = portfolioData;
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
+  const openCvModal = usePortfolioStore((s) => s.openCvModal);
 
   return (
     <section id="about" className="py-24 sm:py-32">
@@ -69,12 +71,10 @@ export function About() {
             </div>
 
             <Button
-              as="a"
-              href={personal.cvUrl}
-              download
-              rightIcon={<ArrowDownIcon width={18} height={18} />}
+              onClick={openCvModal}
+              leftIcon={<EyeIcon width={18} height={18} />}
             >
-              Descargar CV
+              Ver CV
             </Button>
           </div>
         </div>

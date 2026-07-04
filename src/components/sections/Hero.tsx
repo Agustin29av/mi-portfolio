@@ -1,8 +1,9 @@
 // src/components/sections/Hero.tsx
 import { useEffect, useState } from 'react';
 import { portfolioData } from '../../data/portfolioData';
+import { usePortfolioStore } from '../../store/usePortfolioStore';
 import { Button } from '../ui/Button';
-import { ArrowDownIcon, GitHubIcon, LinkedInIcon, MailIcon, MapPinIcon } from '../ui/Icons';
+import { ArrowDownIcon, EyeIcon, GitHubIcon, LinkedInIcon, MailIcon, MapPinIcon } from '../ui/Icons';
 
 const scrollTo = (id: string) => {
   const el = document.getElementById(id);
@@ -47,6 +48,7 @@ function useTypewriter(words: string[], speed = 90, pause = 1500) {
 export function Hero() {
   const { personal, roles } = portfolioData;
   const typed = useTypewriter(roles);
+  const openCvModal = usePortfolioStore((s) => s.openCvModal);
 
   const greetingWords = ['Hola,', 'soy'];
 
@@ -116,13 +118,12 @@ export function Hero() {
               Ver proyectos
             </Button>
             <Button
-              as="a"
-              href={personal.cvUrl}
-              download
+              onClick={openCvModal}
               variant="secondary"
               size="lg"
+              leftIcon={<EyeIcon width={18} height={18} />}
             >
-              Descargar CV
+              Ver CV
             </Button>
           </div>
 
