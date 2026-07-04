@@ -3,6 +3,7 @@ import type { FormEvent } from 'react';
 import { portfolioData } from '../../data/portfolioData';
 import { useContactForm } from '../../hooks/useContactForm';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { usePortfolioStore } from '../../store/usePortfolioStore';
 import { Button } from '../ui/Button';
 import { SectionTitle } from '../ui/SectionTitle';
 import { CheckIcon, GitHubIcon, LinkedInIcon, MailIcon } from '../ui/Icons';
@@ -10,6 +11,7 @@ import { CheckIcon, GitHubIcon, LinkedInIcon, MailIcon } from '../ui/Icons';
 export function Contact() {
   const { personal } = portfolioData;
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
+  const openEmailModal = usePortfolioStore((s) => s.openEmailModal);
   const {
     form,
     errors,
@@ -49,11 +51,11 @@ export function Contact() {
         <div className="mt-16 grid lg:grid-cols-5 gap-8">
           {/* Direct contact */}
           <div className="lg:col-span-2 space-y-3">
-            <a
-              href={`mailto:${personal.email}`}
-              className="flex items-center gap-3 p-4 rounded-xl border border-border-light dark:border-border-dark bg-white dark:bg-surface-card-dark hover:border-accent-500 hover:-translate-y-0.5 transition-all"
+            <button
+              onClick={openEmailModal}
+              className="w-full text-left flex items-center gap-3 p-4 rounded-xl border border-border-light dark:border-border-dark bg-white dark:bg-surface-card-dark hover:border-accent-500 hover:-translate-y-0.5 transition-all cursor-pointer"
             >
-              <span className="w-10 h-10 grid place-items-center rounded-lg gradient-bg text-white">
+              <span className="w-10 h-10 grid place-items-center rounded-lg gradient-bg text-white shrink-0">
                 <MailIcon />
               </span>
               <span>
@@ -64,7 +66,7 @@ export function Contact() {
                   {personal.email}
                 </span>
               </span>
-            </a>
+            </button>
             <a
               href={personal.linkedin}
               target="_blank"

@@ -1,10 +1,12 @@
 // src/components/layout/Footer.tsx
 import { portfolioData } from '../../data/portfolioData';
+import { usePortfolioStore } from '../../store/usePortfolioStore';
 import { ArrowUpIcon, GitHubIcon, LinkedInIcon, MailIcon } from '../ui/Icons';
 
 export function Footer() {
   const year = new Date().getFullYear();
   const { personal } = portfolioData;
+  const openEmailModal = usePortfolioStore((s) => s.openEmailModal);
 
   const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -38,13 +40,13 @@ export function Footer() {
           >
             <LinkedInIcon />
           </a>
-          <a
-            href={`mailto:${personal.email}`}
+          <button
+            onClick={openEmailModal}
             aria-label="Email"
-            className="w-9 h-9 grid place-items-center rounded-lg text-ink-light-muted dark:text-ink-dark-muted hover:text-accent-500 hover:bg-accent-500/10 transition-colors"
+            className="w-9 h-9 grid place-items-center rounded-lg text-ink-light-muted dark:text-ink-dark-muted hover:text-accent-500 hover:bg-accent-500/10 transition-colors cursor-pointer bg-transparent"
           >
             <MailIcon />
-          </a>
+          </button>
           <button
             onClick={scrollTop}
             aria-label="Volver arriba"

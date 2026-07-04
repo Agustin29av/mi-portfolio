@@ -49,6 +49,7 @@ export function Hero() {
   const { personal, roles } = portfolioData;
   const typed = useTypewriter(roles);
   const openCvModal = usePortfolioStore((s) => s.openCvModal);
+  const openEmailModal = usePortfolioStore((s) => s.openEmailModal);
 
   const greetingWords = ['Hola,', 'soy'];
 
@@ -146,13 +147,13 @@ export function Hero() {
             >
               <LinkedInIcon />
             </a>
-            <a
-              href={`mailto:${personal.email}`}
+            <button
+              onClick={openEmailModal}
               aria-label="Email"
-              className="w-11 h-11 grid place-items-center rounded-xl border border-border-light dark:border-border-dark text-ink-light dark:text-ink-dark hover:border-accent-500 hover:text-accent-500 hover:-translate-y-0.5 transition-all"
+              className="w-11 h-11 grid place-items-center rounded-xl border border-border-light dark:border-border-dark text-ink-light dark:text-ink-dark hover:border-accent-500 hover:text-accent-500 hover:-translate-y-0.5 transition-all cursor-pointer bg-transparent"
             >
               <MailIcon />
-            </a>
+            </button>
           </div>
         </div>
       </div>
