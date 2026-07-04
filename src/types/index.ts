@@ -1,6 +1,6 @@
 // src/types/index.ts
 
-export type SkillCategory = 'Frontend' | 'Tools' | 'Otros';
+export type SkillCategory = 'Frontend' | 'Backend' | 'Librerías Frontend' | 'Bases de Datos' | 'Herramientas';
 
 export interface Skill {
   name: string;

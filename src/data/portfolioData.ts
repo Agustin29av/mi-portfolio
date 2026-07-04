@@ -24,24 +24,37 @@ export const portfolioData: PortfolioData = {
     { label: "Mates por día", value: "∞" },
   ],
   skills: [
+    // Frontend
     { name: "React", icon: "⚛️", level: 5, category: "Frontend" },
     { name: "TypeScript", icon: "🔷", level: 5, category: "Frontend" },
     { name: "JavaScript", icon: "🟨", level: 5, category: "Frontend" },
     { name: "HTML5", icon: "🧱", level: 5, category: "Frontend" },
     { name: "CSS3", icon: "🎨", level: 5, category: "Frontend" },
     { name: "Tailwind CSS", icon: "💨", level: 5, category: "Frontend" },
-    { name: "Zustand", icon: "🐻", level: 4, category: "Frontend" },
-    { name: "Redux", icon: "🔁", level: 4, category: "Frontend" },
-    { name: "Next.js", icon: "▲", level: 4, category: "Frontend" },
-    { name: "Vite", icon: "⚡", level: 5, category: "Tools" },
-    { name: "Git", icon: "🌿", level: 5, category: "Tools" },
-    { name: "GitHub", icon: "🐙", level: 5, category: "Tools" },
-    { name: "VS Code", icon: "🧠", level: 5, category: "Tools" },
-    { name: "Figma", icon: "🎯", level: 4, category: "Tools" },
-    { name: "Node.js", icon: "🟢", level: 3, category: "Otros" },
-    { name: "REST APIs", icon: "🔌", level: 4, category: "Otros" },
-    { name: "Accesibilidad", icon: "♿", level: 4, category: "Otros" },
-    { name: "Inglés A1", icon: "🌎", level: 4, category: "Otros" },
+    { name: "Zustand", icon: "🐻", level: 5, category: "Frontend" },
+
+    // Backend
+    { name: "Node.js", icon: "🟢", level: 5, category: "Backend" },
+    { name: "Express.js", icon: "⚡", level: 5, category: "Backend" },
+    { name: "APIs REST", icon: "🔌", level: 5, category: "Backend" },
+    { name: "Prisma ORM", icon: "💎", level: 5, category: "Backend" },
+
+    // Librerías Frontend
+    { name: "TanStack Query", icon: "🔄", level: 5, category: "Librerías Frontend" },
+    { name: "React Hook Form", icon: "📋", level: 5, category: "Librerías Frontend" },
+    { name: "Recharts", icon: "📊", level: 5, category: "Librerías Frontend" },
+    { name: "Zod", icon: "🛡️", level: 5, category: "Librerías Frontend" },
+
+    // Bases de Datos
+    { name: "MySQL", icon: "🐬", level: 5, category: "Bases de Datos" },
+    { name: "PostgreSQL", icon: "🐘", level: 5, category: "Bases de Datos" },
+
+    // Herramientas
+    { name: "Git", icon: "🌿", level: 5, category: "Herramientas" },
+    { name: "GitHub", icon: "🐙", level: 5, category: "Herramientas" },
+    { name: "Scrum", icon: "🏃", level: 5, category: "Herramientas" },
+    { name: "Figma", icon: "🎯", level: 5, category: "Herramientas" },
+    { name: "Vercel", icon: "▲", level: 5, category: "Herramientas" },
   ],
   projects: [
     {
