@@ -13,7 +13,7 @@ export const portfolioData: PortfolioData = {
     linkedin: "https://linkedin.com/in/agustin-avilés-a1b05b188",
     // TODO: completar URL de GitHub
     github: "https://github.com/tu-usuario",
-    cvUrl: "/001-AgustinAvilesCv.pdf",
+    cvUrl: "/Agustin_Aviles_CV.pdf",
     location: "Entre Ríos, Argentina",
   },
   roles: ["Frontend Developer"],
@@ -61,12 +61,30 @@ export const portfolioData: PortfolioData = {
       liveUrl: "https://concesionario-app.vercel.app/", // TODO: Reemplazar con el link real de Vercel
       imageUrl: "/projects/concesionario-1.jpg",
       images: [
-        { url: "/projects/concesionario-1.jpg", caption: "Página de inicio con buscador de vehículos" },
-        { url: "/projects/concesionario-3.jpg", caption: "Catálogo interactivo de autos disponibles" },
-        { url: "/projects/concesionario-5.png", caption: "Ficha técnica y detalles del vehículo seleccionado" },
-        { url: "/projects/concesionario-2.png", caption: "Administración: Control e inventario de stock (CRUD)" },
-        { url: "/projects/concesionario-4.png", caption: "Administración: Seguimiento y cobro de cuotas de clientes" },
-        { url: "/projects/concesionario-6.png", caption: "Administración: Dashboard de finanzas y caja" },
+        {
+          url: "/projects/concesionario-1.jpg",
+          caption: "Página de inicio con buscador de vehículos",
+        },
+        {
+          url: "/projects/concesionario-3.jpg",
+          caption: "Catálogo interactivo de autos disponibles",
+        },
+        {
+          url: "/projects/concesionario-5.png",
+          caption: "Ficha técnica y detalles del vehículo seleccionado",
+        },
+        {
+          url: "/projects/concesionario-2.png",
+          caption: "Administración: Control e inventario de stock (CRUD)",
+        },
+        {
+          url: "/projects/concesionario-4.png",
+          caption: "Administración: Seguimiento y cobro de cuotas de clientes",
+        },
+        {
+          url: "/projects/concesionario-6.png",
+          caption: "Administración: Dashboard de finanzas y caja",
+        },
       ],
       featured: true,
     },
