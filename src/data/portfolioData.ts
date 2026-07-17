@@ -40,8 +40,18 @@ export const portfolioData: PortfolioData = {
     { name: "Prisma ORM", icon: "💎", level: 5, category: "Backend" },
 
     // Librerías Frontend
-    { name: "TanStack Query", icon: "🔄", level: 5, category: "Librerías Frontend" },
-    { name: "React Hook Form", icon: "📋", level: 5, category: "Librerías Frontend" },
+    {
+      name: "TanStack Query",
+      icon: "🔄",
+      level: 5,
+      category: "Librerías Frontend",
+    },
+    {
+      name: "React Hook Form",
+      icon: "📋",
+      level: 5,
+      category: "Librerías Frontend",
+    },
     { name: "Recharts", icon: "📊", level: 5, category: "Librerías Frontend" },
     { name: "Zod", icon: "🛡️", level: 5, category: "Librerías Frontend" },
 
@@ -72,31 +82,51 @@ export const portfolioData: PortfolioData = {
       ],
       githubUrl: "https://github.com/Agustin29av/concesionario-app",
       liveUrl: "https://concesionario-app.vercel.app/", // TODO: Reemplazar con el link real de Vercel
-      imageUrl: "/projects/concesionario-1.jpg",
+      imageUrl: "/projects/uno.jpg",
       images: [
         {
-          url: "/projects/concesionario-1.jpg",
-          caption: "Página de inicio con buscador de vehículos",
+          url: "/projects/uno.jpg",
+          caption: "Pantalla inicial",
         },
         {
-          url: "/projects/concesionario-3.jpg",
-          caption: "Catálogo interactivo de autos disponibles",
+          url: "/projects/dos.jpg",
+          caption: "Pantalla inicial en el e-commerce de los autos",
         },
         {
-          url: "/projects/concesionario-5.png",
-          caption: "Ficha técnica y detalles del vehículo seleccionado",
+          url: "/projects/B1.jpg",
+          caption: "Vista de detalle al seleccionar un auto",
         },
         {
-          url: "/projects/concesionario-2.png",
-          caption: "Administración: Control e inventario de stock (CRUD)",
+          url: "/projects/cuatro.jpg",
+          caption: "Pantalla de login para administrador",
         },
         {
-          url: "/projects/concesionario-4.png",
-          caption: "Administración: Seguimiento y cobro de cuotas de clientes",
+          url: "/projects/cinco.jpg",
+          caption: "Gestión y listado de stock",
         },
         {
-          url: "/projects/concesionario-6.png",
-          caption: "Administración: Dashboard de finanzas y caja",
+          url: "/projects/seis.jpg",
+          caption: "Vista de stock en la sección de ventas",
+        },
+        {
+          url: "/projects/siete.jpg",
+          caption: "Modal para registrar un nuevo auto en stock",
+        },
+        {
+          url: "/projects/ocho.jpg",
+          caption: "Pantalla de gestión de ventas",
+        },
+        {
+          url: "/projects/nueve.jpg",
+          caption: "Comprobante de venta",
+        },
+        {
+          url: "/projects/diez.jpg",
+          caption: "Gestión y seguimiento de cuotas",
+        },
+        {
+          url: "/projects/once.jpg",
+          caption: "Modal de detalle y cobro de cuota",
         },
       ],
       featured: true,
