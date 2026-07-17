@@ -81,7 +81,7 @@ export const portfolioData: PortfolioData = {
         "Prisma",
       ],
       githubUrl: "https://github.com/Agustin29av/concesionario-app",
-      liveUrl: "https://concesionario-app.vercel.app/", // TODO: Reemplazar con el link real de Vercel
+      liveUrl: "https://tuautogestion.com", // TODO: Reemplazar con el link real de Vercel
       imageUrl: "/projects/uno.jpg",
       images: [
         {
